@@ -1,0 +1,18 @@
+{
+   "require": {
+      "gerardojbaez/money": "0.*",
+      "myclabs/deep-copy": "^1.8",
+      "typisttech/imposter-plugin": "^0.3.0"
+   },
+   "extra": {
+      "imposter": {
+         "namespace": "WP_Shopify\\Vendor"
+      }
+   },
+   "require-dev": {
+      "codeception/codeception": "^4.0"
+   },
+   "config": {
+      "optimize-autoloader": true
+   }
+}
