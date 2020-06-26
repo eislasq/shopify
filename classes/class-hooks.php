@@ -618,6 +618,8 @@ class Hooks
             ),
             'dropzone_product_buy_button' => '#product_buy_button',
             'dropzone_product_title' => '#product_title',
+            'dropzone_product_vendor' => '#product_vendor',
+            'dropzone_product_tax' => '#product_tax',
             'dropzone_product_description' => '#product_description',
             'dropzone_product_pricing' => '#product_pricing',
             'dropzone_product_gallery' => '#product_gallery',

@@ -13,11 +13,16 @@ Render: Products
  */
 class Products
 {
+    
+    /**
+     *
+     * @var WP_Shopify\Render\Templates
+     */
     public $Templates;
     public $Render_Data;
     public $Defaults_Products;
 
-    public function __construct($Templates, $Render_Data, $Defaults_Products)
+    public function __construct( $Templates, $Render_Data, $Defaults_Products)
     {
         $this->Templates = $Templates;
         $this->Render_Data = $Render_Data;
@@ -135,6 +140,9 @@ class Products
      */
     public function products($data = [])
     {
+        echo '<pre>data';
+        var_dump(array_merge($this->Defaults_Products->products($data), $data));
+        echo '</pre>';
         return $this->Templates->load([
             'path' => 'components/products/products-all',
             'type' => 'products',
