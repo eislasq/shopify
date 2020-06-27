@@ -10,6 +10,12 @@ global $post;
 ?>
 
 <style>
+
+   .wps-breadcrumbs {
+          max-width: 775px;
+    margin: 0 auto;
+   }
+
 .wps-products-wrapper {
   display: flex;
 }

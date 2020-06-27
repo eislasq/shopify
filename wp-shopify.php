@@ -5,7 +5,7 @@
 Plugin Name:         WP Shopify
 Plugin URI:          https://wpshop.io
 Description:         Sell and build custom Shopify experiences on WordPress.
-Version:             3.0.5
+Version:             3.0.6
 Author:              WP Shopify
 Author URI:          https://wpshop.io
 License:             GPL-2.0+
@@ -17,36 +17,9 @@ Requires PHP:        5.6
 
 */
 
-global $wp_version;
 global $wpshopify;
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-if (
-    !function_exists('version_compare') ||
-    version_compare(PHP_VERSION, '5.6.0', '<')
-) {
-    wp_die(
-        esc_html__(
-            "Sorry, WP Shopify requires PHP version 5.6 or higher. Please look through <a href=\"https://docs.wpshop.io/#/getting-started/requirements\" target=\"_blank\">our requirements</a> page to learn more. Often times you can simply ask your webhost to upgrade for you. <br><br><a href=" .
-                admin_url('plugins.php') .
-                " class=\"button button-primary\">Back to plugins</a>.",
-            'wpshopify'
-        )
-    );
-}
-
-if (version_compare($wp_version, '5.0', '<')) {
-    wp_die(
-        esc_html__(
-            "Sorry, WP Shopify requires WordPress version 5.0 or higher. Please look through <a href=\"https://docs.wpshop.io/#/getting-started/requirements\" target=\"_blank\">our requirements</a> page to learn more. Often times you can simply ask your webhost to upgrade for you. <br><br><a href=" .
-                admin_url('plugins.php') .
-                " class=\"button button-primary\">Back to plugins</a>.",
-            'wpshopify'
-        )
-    );
-}
-
 
 // If this file is called directly, abort.
 defined('WPINC') ?: die();

@@ -1,26 +1,7 @@
-const GeneralProductsPerPage = wp.element.lazy(() =>
-  import(
-    /* webpackChunkName: 'AdminSettingGeneralProductsPerPage-admin' */ "../../../../app/settings/general/general-products-per-page"
-  )
-)
-
-const ProductsColorVariant = wp.element.lazy(() =>
-  import(
-    /* webpackChunkName: 'AdminSettingProductsColorVariant-admin' */ "../../../../app/settings/products/products-color-variant"
-  )
-)
-
-const ProductsColorAddToCart = wp.element.lazy(() =>
-  import(
-    /* webpackChunkName: 'AdminSettingProductsColorAddToCart-admin' */ "../../../../app/settings/products/products-color-add-to-cart"
-  )
-)
-
-const ProductsPlpDescriptionsToggle = wp.element.lazy(() =>
-  import(
-    /* webpackChunkName: 'AdminSettingProductsPlpDescriptionsToggle-admin' */ "../../../../app/settings/products/products-plp-descriptions-toggle"
-  )
-)
+import GeneralProductsPerPage from "../../../../app/settings/general/general-products-per-page"
+import ProductsColorVariant from "../../../../app/settings/products/products-color-variant"
+import ProductsColorAddToCart from "../../../../app/settings/products/products-color-add-to-cart"
+import ProductsPlpDescriptionsToggle from "../../../../app/settings/products/products-plp-descriptions-toggle"
 
 function ProductsContent() {
   const { Suspense } = wp.element

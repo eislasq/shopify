@@ -90,10 +90,10 @@ class Frontend
         if (!is_admin()) {
             global $post;
 
-            $runtime_url = WP_SHOPIFY_PLUGIN_URL . 'dist/runtime.d0e0f8.min.js';
+            $runtime_url = WP_SHOPIFY_PLUGIN_URL . 'dist/runtime.1d8855.min.js';
             $vendors_admin_url =
-                WP_SHOPIFY_PLUGIN_URL . 'dist/vendors-public.d0e0f8.min.js';
-            $main_url = WP_SHOPIFY_PLUGIN_URL . 'dist/public.d0e0f8.min.js';
+                WP_SHOPIFY_PLUGIN_URL . 'dist/vendors-public.1d8855.min.js';
+            $main_url = WP_SHOPIFY_PLUGIN_URL . 'dist/public.1d8855.min.js';
 
             wp_enqueue_script('wpshopify-runtime', $runtime_url, []);
 

@@ -1,8 +1,8 @@
 === WP Shopify ===
 Contributors: andrewmrobbins
 Donate link: https://wpshop.io/purchase/
-Tags: shopify, ecommerce, store, sell, products, shop, purchase, buy, wpshopify
-Requires at least: 4.7
+Tags: shopify, ecommerce, store, sell, products, shop, purchase, buy
+Requires at least: 5.4
 Requires PHP: 5.6
 Tested up to: 5.4.2
 Stable tag: trunk
@@ -107,6 +107,18 @@ Absolutely! In fact this is our recommendation if you intend to only sell on Wor
 
 == Changelog ==
 Our full changelog can be [found here](https://wpshop.io/changelog/)
+
+= 3.0.6 =
+- **Fixed:** Bug causing custom checkout domain to fail
+- **Fixed:** Bug causing automatic post syncing to fail
+- **Fixed:** Bug causing fatal error when loading a custom post type's editor
+- **Fixed:** Bug causing missing product descriptions on the default PLP pages
+- **Updated:** WP Shopify now requires WordPress 5.4 or greater
+- **Improved:** General mobile styles
+- **Improved:** Added mobile styles to product single pages
+- **Improved:** Error handling when no Shopify connection
+- **Improved:** Hiding third-party plugin notices on the Wizard admin page
+- **Dev:** Added new JS filter: `misc.layout.mobileColumns`
 
 = 3.0.5 =
 - **Fixed:** Bug causing default pages to be repeatedly created if `wps_settings_general` table is empty

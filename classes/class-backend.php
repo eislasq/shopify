@@ -222,6 +222,28 @@ class Backend
     public function admin_scripts()
     {
         if ($this->should_load_js() && !$this->is_wizard_page()) {
+            global $wp_version;
+
+            if (version_compare($wp_version, '5.4', '<')) {
+                wp_die(
+                    "Sorry, WP Shopify requires WordPress version 5.4 or higher. Please look through <a href=\"https://docs.wpshop.io/#/getting-started/requirements\" target=\"_blank\">our requirements</a> page to learn more. Often times you can simply ask your webhost to upgrade for you. <br><br><a href=" .
+                        admin_url('plugins.php') .
+                        " class=\"button button-primary\">Back to plugins</a>."
+                );
+            }
+
+            if (
+                !function_exists('version_compare') ||
+                version_compare(PHP_VERSION, '5.6.0', '<')
+            ) {
+                wp_die(
+                    "Sorry, WP Shopify requires PHP version 5.6 or higher. Please look through <a href=\"https://docs.wpshop.io/#/getting-started/requirements\" target=\"_blank\">our requirements</a> page to learn more. Often times you can simply ask your webhost to upgrade for you. <br><br><a href=" .
+                        admin_url('plugins.php') .
+                        " class=\"button button-primary\">Back to plugins</a>."
+                );
+            }
+
+
             wp_enqueue_script(
                 'validate-js',
                 WP_SHOPIFY_PLUGIN_URL .
@@ -242,10 +264,10 @@ class Backend
                 )
             );
 
-            $runtime_url = WP_SHOPIFY_PLUGIN_URL . 'dist/runtime.d0e0f8.min.js';
+            $runtime_url = WP_SHOPIFY_PLUGIN_URL . 'dist/runtime.1d8855.min.js';
             $vendors_admin_url =
-                WP_SHOPIFY_PLUGIN_URL . 'dist/vendors-admin.d0e0f8.min.js';
-            $main_url = WP_SHOPIFY_PLUGIN_URL . 'dist/admin.d0e0f8.min.js';
+                WP_SHOPIFY_PLUGIN_URL . 'dist/vendors-admin.1d8855.min.js';
+            $main_url = WP_SHOPIFY_PLUGIN_URL . 'dist/admin.1d8855.min.js';
 
             wp_enqueue_script('wpshopify-runtime', $runtime_url, []);
             wp_enqueue_script(
@@ -550,10 +572,10 @@ class Backend
       */
     public function wpshopify_blocks_assets()
     {
-        $runtime_url = WP_SHOPIFY_PLUGIN_URL . 'dist/runtime.d0e0f8.min.js';
+        $runtime_url = WP_SHOPIFY_PLUGIN_URL . 'dist/runtime.1d8855.min.js';
         $vendors_admin_url =
-            WP_SHOPIFY_PLUGIN_URL . 'dist/vendors-admin.d0e0f8.min.js';
-        $main_url = WP_SHOPIFY_PLUGIN_URL . 'dist/blocks.d0e0f8.min.js';
+            WP_SHOPIFY_PLUGIN_URL . 'dist/vendors-admin.1d8855.min.js';
+        $main_url = WP_SHOPIFY_PLUGIN_URL . 'dist/blocks.1d8855.min.js';
 
         wp_enqueue_script('wpshopify-runtime', $runtime_url, []);
         wp_enqueue_script('wpshopify-vendors-admin', $vendors_admin_url, []);
@@ -601,10 +623,10 @@ class Backend
     public function wpshopify_wizard_assets()
     {
         if ($this->is_wizard_page()) {
-            $runtime_url = WP_SHOPIFY_PLUGIN_URL . 'dist/runtime.d0e0f8.min.js';
+            $runtime_url = WP_SHOPIFY_PLUGIN_URL . 'dist/runtime.1d8855.min.js';
             $vendors_admin_url =
-                WP_SHOPIFY_PLUGIN_URL . 'dist/vendors-admin.d0e0f8.min.js';
-            $main_url = WP_SHOPIFY_PLUGIN_URL . 'dist/wizard.d0e0f8.min.js';
+                WP_SHOPIFY_PLUGIN_URL . 'dist/vendors-admin.1d8855.min.js';
+            $main_url = WP_SHOPIFY_PLUGIN_URL . 'dist/wizard.1d8855.min.js';
 
             wp_enqueue_script('wpshopify-runtime', $runtime_url, []);
             wp_enqueue_script(
@@ -634,10 +656,6 @@ class Backend
 
     public function wpshopify_block_categories($categories, $post)
     {
-        if ($post->post_type !== 'post' && $post->post_type !== 'page') {
-            return $categories;
-        }
-
         return array_merge($categories, [
             [
                 'slug' => 'wpshopify-products',

@@ -57,6 +57,8 @@ class Webhooks extends \WP_Shopify\Processing\Vendor_Background_Process
             return $topic;
         }
 
+        $topic_ok = maybe_unserialize($topic);
+
         // Actual work
         $response = $this->Shopify_API->register_webhook(
             $this->Webhooks->get_webhook_body_from_topic($topic)

@@ -1,21 +1,8 @@
-const CartLoadCart = wp.element.lazy(() =>
-  import(
-    /* webpackChunkName: 'AdminSettingCartLoadCart-admin' */ "../../../../app/settings/cart/cart-load-cart"
-  )
-)
-
-const CartShowFixedCartTab = wp.element.lazy(() =>
-  import(
-    /* webpackChunkName: 'AdminSettingCartShowFixedCartTab-admin' */ "../../../../app/settings/cart/cart-show-fixed-cart-tab"
-  )
-)
-
-const CheckoutButtonTarget = wp.element.lazy(() =>
-  import(
-    /* webpackChunkName: 'AdminSettingCheckoutButtonTarget-admin' */ "../../../../app/settings/checkout/checkout-button-target"
-  )
-)
+import CartLoadCart from "../../../../app/settings/cart/cart-load-cart"
+import CartShowFixedCartTab from "../../../../app/settings/cart/cart-show-fixed-cart-tab"
+import CheckoutButtonTarget from "../../../../app/settings/checkout/checkout-button-target"
 import WizardContext from "../../../_state/context"
+
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core"
 
