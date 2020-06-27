@@ -13,6 +13,11 @@ Render: Products
  */
 class Products
 {
+    
+    /**
+     *
+     * @var WP_Shopify\Render\Templates
+     */
     public $Templates;
     public $Render_Data;
     public $Defaults_Products;

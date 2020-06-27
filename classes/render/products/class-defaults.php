@@ -481,6 +481,22 @@ class Defaults
                     false
                 )
             ),
+            'dropzone_product_vendor' => apply_filters(
+                'wps_products_dropzone_product_vendor',
+                $this->Render_Attributes->attr(
+                    $attrs,
+                    'dropzone_product_vendor',
+                    false
+                )
+            ),
+            'dropzone_product_tax' => apply_filters(
+                'wps_products_dropzone_product_tax',
+                $this->Render_Attributes->attr(
+                    $attrs,
+                    'dropzone_product_tax',
+                    false
+                )
+            ),
             'dropzone_product_description' => apply_filters(
                 'wps_products_dropzone_product_description',
                 $this->Render_Attributes->attr(

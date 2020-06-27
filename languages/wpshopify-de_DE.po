@@ -1052,3 +1052,11 @@ msgstr "Es tut uns leid, WP Shopify erfordert WordPress Version 5.0 oder höher.
 #, fuzzy
 msgid "Please deactivate the free version of WP Shopify before activating WP Shopify Pro. <br><br><a href="
 msgstr "Bitte deaktivieren Sie die kostenlose Version von WP Shopify, bevor Sie WP Shopify Pro aktivieren.<br><br><a href="
+
+#: public/templates/products-single.php:75
+msgid "VAT Included"
+msgstr "Inkl. MwSt"
+
+#: public/templates/products-single.php:75
+msgid "Plus shipping costs"
+msgstr "Plus Versandkosten"

@@ -1,5 +1,4 @@
 <?php
-
 defined('ABSPATH') ?: die();
 
 get_header('wpshopify');
@@ -8,26 +7,31 @@ global $post;
 
 $Products = WP_Shopify\Factories\Render\Products\Products_Factory::build();
 
-$Products->products(
-    apply_filters('wps_products_single_args', [
-        'dropzone_product_buy_button' => '#product_buy_button',
-        'dropzone_product_title' => '#product_title',
-        'dropzone_product_description' => '#product_description',
-        'dropzone_product_pricing' => '#product_pricing',
-        'dropzone_product_gallery' => '#product_gallery',
-        'link_to' => 'none',
-    ])
+
+$x = $Products->products(
+        apply_filters('wps_products_single_args', [
+    'dropzone_product_buy_button' => '#product_buy_button',
+    'dropzone_product_vendor' => '#product_vendor',
+    'dropzone_product_title' => '#product_title',
+    'dropzone_product_pricing' => '#product_pricing',
+    'dropzone_product_tax' => '#product_tax',
+    'dropzone_product_description' => '#product_description',
+    'dropzone_product_gallery' => '#product_gallery',
+    'link_to' => 'none',
+    "vendor" => 'true'
+        ])
 );
+
 ?>
 
 <section class="wps-container">
 
-   <style>
+    <style>
 
 
       .single-wps_products .wps-breadcrumbs + .wps-product-single {
             margin-top: 0;
-         }
+        }
 
       .single-wps_products .wps-product-single {
          margin-top: 1em;
@@ -87,25 +91,31 @@ $Products->products(
 
    </style>
 
-   <?= do_action('wps_breadcrumbs') ?>
+    <?= do_action('wps_breadcrumbs') ?>
 
-   <div class="wps-product-single">
+    <div class="wps-product-single">
 
-      <div class="wps-product-single-gallery">
-         <div id="product_gallery"></div>
-      </div>
+        <div class="wps-product-single-gallery">
+            <div id="product_gallery"></div>
+        </div>
 
-      <div class="wps-product-single-content">
-         
-         <div id="product_title"></div>
-         <div id="product_pricing"></div>
-         <div id="product_description"></div>
-         <div id="product_buy_button"></div>
+        <div class="wps-product-single-content">
 
-      </div>
+            <div id="product_vendor"></div>
+            <div id="product_title"></div>
+            <div id="product_pricing"></div>
+            <div id="product_tax"><?php _e('VAT Included', 'wpshopify');  ?>|<?php _e('Plus shipping costs', 'wpshopify');  ?></div>
+            <div id="product_buy_button"></div>
+            <div id="product_description"></div>
 
-   </div>
+
+        </div>
+
+    </div>
 
 </section>
+<?php
 
-<?php get_footer('wpshopify');
+echo do_shortcode('[mshgql_collections show_img="1", prefix_url="/collection-"]');
+
+get_footer('wpshopify');

@@ -11,7 +11,7 @@ class Products_Factory {
 
 	protected static $instantiated = null;
 
-	public static function build($plugin_settings = false) {
+	public static function build($plugin_settings = false):Products {
 
 		if (is_null(self::$instantiated)) {
 
